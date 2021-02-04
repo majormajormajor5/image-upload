@@ -6,4 +6,7 @@ class RxflodevGateway
 {
     private const URL = 'https://test.rxflodev.com';
 
+    public function postImage()
+    {
+    }
 }
