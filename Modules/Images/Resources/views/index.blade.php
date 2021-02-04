@@ -9,7 +9,7 @@
 
         {{ csrf_field() }}
     </form>
-
+    <img src="data:image/png;base64, {{ session('currentImg') }}">
     <p>
         This view is loaded from module: {!! config('images.name') !!}
     </p>

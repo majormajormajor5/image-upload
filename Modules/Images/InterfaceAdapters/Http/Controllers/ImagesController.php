@@ -39,11 +39,12 @@ class ImagesController extends Controller
     {
         $image = $request->file('image');
         //validation goes here
-        dd($request->file('image')->getContent());
-
+//        dd($request->file('image')->getContent());
         $image = $factory->createFromContent($image->getContent());
 
-        $imageUpload->uploadImage($image);
+        return json_encode([
+            'returnedUrl' => $imageUpload->uploadImage($image)
+        ]);
     }
 
     /**

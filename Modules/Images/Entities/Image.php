@@ -12,6 +12,7 @@ class Image
         ?string $content
     ) {
         $this->id = uniqid("", true);
+        $this->content = $content;
     }
 
     public function getId(): string
@@ -22,5 +23,10 @@ class Image
     public function getContent(): ?string
     {
         return $this->content;
+    }
+
+    public function getBase64(): ?string
+    {
+        return base64_encode($this->content);
     }
 }

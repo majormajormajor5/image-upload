@@ -6,5 +6,5 @@ use Modules\Images\Entities\Image;
 
 interface ImageUpload
 {
-    public function uploadImage(Image $image): void;
+    public function uploadImage(Image $image): string;
 }
