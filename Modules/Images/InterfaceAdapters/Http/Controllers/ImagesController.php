@@ -2,6 +2,7 @@
 
 namespace Modules\Images\InterfaceAdapters\Http\Controllers;
 
+use Illuminate\Support\Facades\Session;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
@@ -17,6 +18,13 @@ class ImagesController extends Controller
     public function index()
     {
         return view('images::index');
+    }
+
+    public function getAllUploadedImages()
+    {
+        return json_encode([
+            'storedUrls'=> Session::get('uploadedImages') ?? []
+        ]);
     }
 
     /**
@@ -44,46 +52,5 @@ class ImagesController extends Controller
         return json_encode([
             'returnedUrl' => $imageUpload->uploadImage($image)
         ]);
-    }
-
-    /**
-     * Show the specified resource.
-     * @param int $id
-     * @return Renderable
-     */
-    public function show($id)
-    {
-        return view('images::show');
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     * @param int $id
-     * @return Renderable
-     */
-    public function edit($id)
-    {
-        return view('images::edit');
-    }
-
-    /**
-     * Update the specified resource in storage.
-     * @param Request $request
-     * @param int $id
-     * @return Renderable
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     * @param int $id
-     * @return Renderable
-     */
-    public function destroy($id)
-    {
-        //
     }
 }

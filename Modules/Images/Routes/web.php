@@ -14,5 +14,6 @@ use \Modules\Images\InterfaceAdapters\Http\Controllers\ImagesController;
 
 Route::prefix('images')->group(function() {
     Route::get('/', [ImagesController::class, 'index']);
+    Route::get('/get-all-uploaded-images', [ImagesController::class, 'getAllUploadedImages']);
     Route::post('/', [ImagesController::class, 'store'])->name('images.upload');
 });

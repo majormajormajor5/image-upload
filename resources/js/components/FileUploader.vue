@@ -13,8 +13,8 @@
                             <div class="col-md-12 error-message">
                                 {{ errorMessage }}
                             </div>
-                            <div v-if="returnedUrl !== null" class="col-md-12 error-message">
-                               <img :src="returnedUrl">
+                            <div v-if="returnedUrls.length > 0" v-for="url in returnedUrls" class="col-md-12 error-message">
+                               <img :src="url">
                             </div>
                         </div>
                         <div class="form-group row mb-0">
@@ -40,27 +40,37 @@ export default {
     data: () => ({
         image: null,
         errorMessage: null,
-        acceptableExtensions: ['image/jpeg', 'image/bmp', 'image/jpg', 'image/png',],
-        returnedUrl: null
+        acceptableExtensions: ['image/png',],
+        returnedUrls: []
     }),
 
     created: function() {
         this.uploadManager = new UploadManager();
+
+        this.showUploadedImages();
     },
 
     methods: {
+        showUploadedImages() {
+            this.uploadManager.getAllUploadedImages()
+            .then((response) => {
+                if (response.data !== false) {
+                    console.log('Uploaded!!');
+                    this.returnedUrls = response.data.storedUrls;
+                }
+            })
+        },
         handleImageToUpload() {
             let image = this.$refs.image.files[0];
 
             if (!this.isAcceptableImage(image)) {
-                this.errorMessage = 'Just only jpeg, jpg, png, bmp'
+                this.errorMessage = 'Just only png'
                 return;
             }
 
             this.errorMessage = null;
             this.image = image;
         },
-
         submitFile() {
             if (!this.isAcceptableImage(this.image)) {
                 return;
@@ -72,12 +82,10 @@ export default {
             this.uploadManager.uploadFile(form)
             .then((response) => {
                 if (response.data !== false) {
-                    console.log('Uploaded!!');
-                    this.returnedUrl = response.data.returnedUrl;
+                    this.returnedUrls.unshift(response.data.returnedUrl);
                 }
             })
             .catch(() => {
-                this.returnedUrl = null;
                 console.log('FAILURE!!');
             });
         },

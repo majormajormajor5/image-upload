@@ -38,6 +38,12 @@ class RxflodevGateway
         $response = json_decode($response, true);
 
         if (isset($response['status']) && $response['status'] == 'success' && !empty($response['url'])) {
+            if (!Session::exists('uploadedImages')) {
+                Session::put('uploadedImages', []);
+            }
+
+            Session::push('uploadedImages', $response['url']);
+
             return $response['url'];
         }
     }
