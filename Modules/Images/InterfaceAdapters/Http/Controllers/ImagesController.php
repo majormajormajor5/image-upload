@@ -1,10 +1,12 @@
 <?php
 
-namespace Modules\Images\Http\Controllers;
+namespace Modules\Images\InterfaceAdapters\Http\Controllers;
 
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Modules\Images\Entities\Factory\ImagesFactory;
+use Modules\Images\UseCases\ImageUpload;
 
 class ImagesController extends Controller
 {
@@ -14,6 +16,7 @@ class ImagesController extends Controller
      */
     public function index()
     {
+//        dd(22);
         return view('images::index');
     }
 
@@ -29,11 +32,18 @@ class ImagesController extends Controller
     /**
      * Store a newly created resource in storage.
      * @param Request $request
+     * @param ImageUpload $imageUpload
      * @return Renderable
      */
-    public function store(Request $request)
+    public function store(Request $request, ImageUpload $imageUpload, ImagesFactory $factory)
     {
-        //
+        $image = $request->file('image');
+        //validation goes here
+        dd($request->file('image')->getContent());
+
+        $image = $factory->createFromContent($image->getContent());
+
+        $imageUpload->uploadImage($image);
     }
 
     /**

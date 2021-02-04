@@ -1,5 +1,6 @@
 <?php
 
+use \Modules\Images\InterfaceAdapters\Http\Controllers\ImagesController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,5 +13,6 @@
 */
 
 Route::prefix('images')->group(function() {
-    Route::get('/', 'ImagesController@index');
+    Route::get('/', [ImagesController::class, 'index']);
+    Route::post('/', [ImagesController::class, 'store'])->name('images.upload');
 });

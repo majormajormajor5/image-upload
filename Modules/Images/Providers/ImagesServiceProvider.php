@@ -4,6 +4,7 @@ namespace Modules\Images\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Database\Eloquent\Factory;
+use Modules\Images\UseCases\ImageUpload;
 
 class ImagesServiceProvider extends ServiceProvider
 {
@@ -39,6 +40,10 @@ class ImagesServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->register(RouteServiceProvider::class);
+        $this->app->bind(
+            ImageUpload::class,
+            \Modules\Images\Implementations\UseCases\ImageUpload::class
+        );
     }
 
     /**
