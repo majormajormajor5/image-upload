@@ -16,7 +16,6 @@ class ImagesController extends Controller
      */
     public function index()
     {
-//        dd(22);
         return view('images::index');
     }
 

@@ -14,7 +14,7 @@
                                 {{ errorMessage }}
                             </div>
                             <div v-if="returnedUrl !== null" class="col-md-12 error-message">
-                               <a :href="returnedUrl">{{ returnedUrl }}</a>
+                               <img :src="returnedUrl">
                             </div>
                         </div>
                         <div class="form-group row mb-0">
