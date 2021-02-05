@@ -14,3 +14,4 @@ $ php artisan key:generate
 $ npm run dev
 </p>
 
+<p> Go to your http:://your-domain.loc/images </p>
