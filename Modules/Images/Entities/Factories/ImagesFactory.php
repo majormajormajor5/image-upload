@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\Images\Entities\Factory;
+namespace Modules\Images\Entities\Factories;
 
 use Modules\Images\Entities\Image;
 
