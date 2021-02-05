@@ -2,7 +2,7 @@
 Hello there. In order to deploy this you need:
 </p>
 
-<p align="center">
+<p>
 $ composer install
 <br>
 $ npm install
