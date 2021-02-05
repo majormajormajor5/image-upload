@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\Images\UseCases;
 
 use Modules\Images\Entities\Image;

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\Images\InterfaceAdapters\Http\Controllers;
 
 use Illuminate\Support\Facades\Session;
@@ -25,7 +27,7 @@ class ImagesController extends Controller
     public function getAllUploadedImages(): string
     {
         return json_encode([
-            'storedUrls'=> Session::get('uploadedImages') ? array_reverse(Session::get('uploadedImages')) : []
+            'storedUrls'=> Session::get('uploadedImages') ? \array_reverse(Session::get('uploadedImages')) : []
         ]);
     }
 
@@ -43,7 +45,11 @@ class ImagesController extends Controller
 
         $image = $request->file('image');
         $image = $factory->createFromContent($image->getContent());
-        $imageUpload->uploadImage($image);
+        try {
+            $imageUpload->uploadImage($image);
+        } catch (\Throwable $e) {
+            //Some logging for example
+        }
 
         return json_encode([
             'returnedUrl' => $image->getUrl()

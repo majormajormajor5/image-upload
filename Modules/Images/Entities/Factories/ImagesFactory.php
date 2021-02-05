@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\Images\Entities\Factories;
 
 use Modules\Images\Entities\Image;

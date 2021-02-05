@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\Images\Implementations\UseCases;
 
 use Illuminate\Support\Facades\Session;
@@ -29,6 +31,8 @@ class ImageUpload implements ImageUploadInterface
 
     /**
      * @param Image $image
+     * @throws \GatewayBadResponseException
+     * @throws \GuzzleHttp\Exception\GuzzleException
      */
     public function uploadImage(Image $image): void
     {

@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\Images\InterfaceAdapters\Gateways;
 
 use GuzzleHttp\Client;
+use GatewayBadResponseException;
 
 /**
  * Class RxflodevGateway
@@ -29,6 +32,7 @@ class RxflodevGateway
     /**
      * @param string $base64
      * @return string
+     * @throws GatewayBadResponseException
      * @throws \GuzzleHttp\Exception\GuzzleException
      */
     public function postImage(string $base64): string
@@ -42,10 +46,12 @@ class RxflodevGateway
             ]
         ])->getBody()->getContents();
 
-        $response = json_decode($response, true);
+        $response = \json_decode($response, true);
 
         if (isset($response['status']) && $response['status'] == 'success' && !empty($response['url'])) {
             return $response['url'];
         }
+
+        throw new GatewayBadResponseException("Something went wrong");
     }
 }
