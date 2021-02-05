@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2d58916c-270b-4ad1-987f-075540bd583b" name="work" comment="File upload implementation">
+    <list default="true" id="2d58916c-270b-4ad1-987f-075540bd583b" name="work" comment="Show stored images">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/Images/InterfaceAdapters/Gateways/RxflodevGateway.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Images/InterfaceAdapters/Gateways/RxflodevGateway.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/Images/InterfaceAdapters/Http/Controllers/ImagesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Images/InterfaceAdapters/Http/Controllers/ImagesController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/FileUploader.vue" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Images/Resources/js/components/FileUploader.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/managers/UploadManager.js" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Images/Resources/js/managers/UploadManager.js" afterDir="false" />
     </list>
     <list id="fa299102-cf66-481c-b799-ba11be8b7ee7" name="my patch" comment="Vue js" />
     <option name="SHOW_DIALOG" value="false" />
@@ -138,7 +141,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$USER_HOME$/my_patch.patch" />
+    <property name="last_opened_file_path" value="$USER_HOME$/project/api" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -149,6 +152,10 @@
     <property name="settings.editor.selected.configurable" value="web-ide.project.structure" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Modules/Images/Resources/js" />
+      <recent name="$PROJECT_DIR$/Modules/Images/Resources/js/components" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/Modules/Images/InterfaceAdapters" />
     </key>
@@ -215,7 +222,14 @@
       <option name="project" value="LOCAL" />
       <updated>1612478610964</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Show stored images">
+      <created>1612480734627</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1612480734627</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -226,7 +240,8 @@
     <MESSAGE value="Add some scaffolding" />
     <MESSAGE value="File upload implementation" />
     <MESSAGE value="Vue js" />
-    <option name="LAST_COMMIT_MESSAGE" value="Vue js" />
+    <MESSAGE value="Show stored images" />
+    <option name="LAST_COMMIT_MESSAGE" value="Show stored images" />
   </component>
   <component name="WindowStateProjectService">
     <state x="576" y="210" width="824" height="684" key="#CLI_Interpreters" timestamp="1612451987093">
@@ -237,10 +252,10 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="690" y="357" width="596" height="390" key="#com.intellij.fileTypes.FileTypeChooser/67.27.1853.1053@67.27.1853.1053" timestamp="1612461761003" />
-    <state x="538" y="124" width="901" height="856" key="CommitChangelistDialog2" timestamp="1612478610885">
+    <state x="538" y="124" width="901" height="856" key="CommitChangelistDialog2" timestamp="1612480734580">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="538" y="124" width="901" height="856" key="CommitChangelistDialog2/67.27.1853.1053@67.27.1853.1053" timestamp="1612478610885" />
+    <state x="538" y="124" width="901" height="856" key="CommitChangelistDialog2/67.27.1853.1053@67.27.1853.1053" timestamp="1612480734580" />
     <state x="760" y="450" width="456" height="204" key="ComposerInitDialogKey" timestamp="1612452005859">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
@@ -249,10 +264,10 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="167" y="125" width="1653" height="855" key="DiffContextDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1612478578737" />
-    <state x="776" y="310" width="424" height="484" key="FileChooserDialogImpl" timestamp="1612478550472">
+    <state x="1051" y="238" width="424" height="484" key="FileChooserDialogImpl" timestamp="1612483186855">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="776" y="310" width="424" height="484" key="FileChooserDialogImpl/67.27.1853.1053@67.27.1853.1053" timestamp="1612478550472" />
+    <state x="1051" y="238" width="424" height="484" key="FileChooserDialogImpl/67.27.1853.1053@67.27.1853.1053" timestamp="1612483186855" />
     <state x="702" y="245" width="573" height="614" key="RollbackChangesDialog" timestamp="1612468004591">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
@@ -265,18 +280,18 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="826" y="424" width="324" height="257" key="VCS.EditChangelistDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1612449053644" />
-    <state x="588" y="288" width="800" height="528" key="Vcs.Push.Dialog.v2" timestamp="1612478650049">
+    <state x="588" y="288" width="800" height="528" key="Vcs.Push.Dialog.v2" timestamp="1612480737496">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="588" y="288" width="800" height="528" key="Vcs.Push.Dialog.v2/67.27.1853.1053@67.27.1853.1053" timestamp="1612478650049" />
-    <state x="639" y="291" width="709" height="522" key="find.popup" timestamp="1612473890598">
+    <state x="588" y="288" width="800" height="528" key="Vcs.Push.Dialog.v2/67.27.1853.1053@67.27.1853.1053" timestamp="1612480737496" />
+    <state x="639" y="291" width="709" height="522" key="find.popup" timestamp="1612482651621">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="639" y="291" width="709" height="522" key="find.popup/67.27.1853.1053@67.27.1853.1053" timestamp="1612473890598" />
-    <state x="656" y="257" width="672" height="678" key="search.everywhere.popup" timestamp="1612478928130">
+    <state x="639" y="291" width="709" height="522" key="find.popup/67.27.1853.1053@67.27.1853.1053" timestamp="1612482651621" />
+    <state x="656" y="257" width="672" height="678" key="search.everywhere.popup" timestamp="1612482831282">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="656" y="257" width="672" height="678" key="search.everywhere.popup/67.27.1853.1053@67.27.1853.1053" timestamp="1612478928130" />
+    <state x="656" y="257" width="672" height="678" key="search.everywhere.popup/67.27.1853.1053@67.27.1853.1053" timestamp="1612482831282" />
     <state x="625" y="254" key="vcs.ApplyPatchDifferentiatedDialog" timestamp="1612478552810">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>

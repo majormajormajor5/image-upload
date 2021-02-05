@@ -2,6 +2,7 @@
 
 namespace Modules\Images\InterfaceAdapters\Http\Controllers;
 
+use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
@@ -12,7 +13,6 @@ use Modules\Images\UseCases\ImageUpload;
 class ImagesController extends Controller
 {
     /**
-     * Display a listing of the resource.
      * @return Renderable
      */
     public function index()
@@ -20,33 +20,30 @@ class ImagesController extends Controller
         return view('images::index');
     }
 
-    public function getAllUploadedImages()
+    /**
+     * @return string
+     */
+    public function getAllUploadedImages(): string
     {
         return json_encode([
-            'storedUrls'=> Session::get('uploadedImages') ?? []
+            'storedUrls'=> Session::get('uploadedImages') ? array_reverse(Session::get('uploadedImages')) : []
         ]);
     }
 
     /**
-     * Show the form for creating a new resource.
-     * @return Renderable
-     */
-    public function create()
-    {
-        return view('images::create');
-    }
-
-    /**
-     * Store a newly created resource in storage.
      * @param Request $request
      * @param ImageUpload $imageUpload
-     * @return Renderable
+     * @param ImagesFactory $factory
+     * @return string
      */
-    public function store(Request $request, ImageUpload $imageUpload, ImagesFactory $factory)
+    public function store(Request $request, ImageUpload $imageUpload, ImagesFactory $factory): string
     {
+        $request->validate([
+            'image' => 'required|mimes:png'
+        ]);
+
         $image = $request->file('image');
-        //validation goes here
-//        dd($request->file('image')->getContent());
+
         $image = $factory->createFromContent($image->getContent());
 
         return json_encode([

@@ -18,14 +18,6 @@ class RxflodevGateway
 
     public function postImage(string $base64): string
     {
-//        dd($base64);
-//        Session::put('currentImg', $base64);
-//        dd($base64);
-//        dd(Session::get('currentImg'));
-//        $response = $this->client->request('POST', static::BASE_URL, [
-//            'imageData' => "data:image/png;base64," . $base64
-//        ]);
-
         $response = $this->client->request('POST', static::BASE_URL, [
             'form_params' => [
                 'imageData' => $base64,
