@@ -2,7 +2,6 @@
 
 namespace Modules\Images\InterfaceAdapters\Http\Controllers;
 
-use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
@@ -43,11 +42,11 @@ class ImagesController extends Controller
         ]);
 
         $image = $request->file('image');
-
         $image = $factory->createFromContent($image->getContent());
+        $imageUpload->uploadImage($image);
 
         return json_encode([
-            'returnedUrl' => $imageUpload->uploadImage($image)
+            'returnedUrl' => $image->getUrl()
         ]);
     }
 }

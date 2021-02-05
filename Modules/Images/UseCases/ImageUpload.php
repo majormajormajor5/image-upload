@@ -4,7 +4,14 @@ namespace Modules\Images\UseCases;
 
 use Modules\Images\Entities\Image;
 
+/**
+ * Interface ImageUpload
+ * @package Modules\Images\UseCases
+ */
 interface ImageUpload
 {
-    public function uploadImage(Image $image): string;
+    /**
+     * @param Image $image
+     */
+    public function uploadImage(Image $image): void;
 }
